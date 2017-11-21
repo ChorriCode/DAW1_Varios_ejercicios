@@ -33,16 +33,22 @@ public class Principal {
 		 */
 		// crear un Estudiante
 
-		/*
-		 * Estudiante estAnonimo = new Estudiante(123);
-		 * System.out.println(estAnonimo.toString()); Estudiante estudiante = new
-		 * Estudiante(111, "44556677G","Carlos", 'M', LocalDate.now(), 187, estAnonimo,
-		 * null);
-		 * 
-		 * System.out.println(estudiante.toString());
-		 * 
-		 * Profesor profe1 = new Profesor(); System.out.println(profe1);
-		 */
+		
+		 Estudiante estAnonimo = new Estudiante(123);
+		 System.out.println(estAnonimo.toString()); 
+		 Estudiante estudiante = new
+		 Estudiante(111, "44556677G","Carlos", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 Estudiante estudiante1 = new Estudiante(111, "44556677G","Javier", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 Estudiante estudiante2 = new Estudiante(111, "44556677G","Pedro", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 Estudiante estudiante3 = new Estudiante(111, "44556677G","Javier", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 
+		 Estudiante [] listaEstudiantes = {estAnonimo,estudiante1,estudiante2,estudiante3};
+		 
+		 
+		 //System.out.println(estudiante.toString());
+		  
+		 Profesor profe1 = new Profesor(); System.out.println(profe1);
+		 
 		Practicas practicas = new Practicas();
 		// new Practicas().muestraNumerosDe1A1000();
 		// practicas.muestraNumerosDe1A1000();
@@ -82,8 +88,11 @@ public class Principal {
 		//Arrays.sort(datos);
 		String[] cadenas =  {"perro","gato","alce"};
 		practicas.ordenaCadenas(cadenas);
-		System.out.println("fin");
+		
 
+		System.out.println("Ordena estudiantes:");
+		practicas.ordenaEstudiantes(listaEstudiantes);
+		System.out.println("fin");
 	}
 
 }

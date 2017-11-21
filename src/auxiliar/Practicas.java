@@ -23,19 +23,24 @@ public class Practicas {
 	public void ordenaCadenas(String[] cadenas) {
 		for (int i = 0; i < cadenas.length - 1; i++)
 			for (int j = i + 1; j < cadenas.length; j++)
-				if (cadenas[i].compareTo(cadenas[j])>0) {
+				if (cadenas[i].compareTo(cadenas[j]) > 0) {
 					String aux = cadenas[i];
 					cadenas[i] = cadenas[j];
 					cadenas[j] = aux;
 				}
-		
-		
+
 	}
-	
-	public void ordenaEstudiantes(Estudiante[] estudiantes)
-	{
-		
+
+	public void ordenaEstudiantes(Estudiante[] estudiantes) {
+		for (int i = 0; i < estudiantes.length - 1; i++)
+			for (int j = i + 1; j < estudiantes.length; j++)
+				if (estudiantes[i].compareTo(estudiantes[j]) > 0) {
+					Estudiante aux = estudiantes[i];
+					estudiantes[i] = estudiantes[j];
+					estudiantes[j] = aux;
+				}
 	}
+
 	public float calculaSaldo(float saldoInicial, float[] movimientos) {
 		float saldoFinal = saldoInicial;
 		for (int i = 0; i < movimientos.length; i++)
@@ -109,7 +114,7 @@ public class Practicas {
 
 		for (int i = 0; i < cuantos; i++)
 			System.out.println(inferior + (int) (Math.random() * (superior - inferior + 1)));
-			
+
 	}
 
 	public void generaAleatorios2(int cuantos, int inferior, int superior) // max 30, min 10
