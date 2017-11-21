@@ -31,7 +31,7 @@ public class Estudiante extends Persona implements Comparable<Estudiante> {
 	
 	public int compareTo(Estudiante estudiante) {
 		
-		return this.getNif().compareTo(estudiante.getNif());
+		return this.getNombre().compareTo(estudiante.getNombre());
 	}
 
 

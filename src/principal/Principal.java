@@ -37,10 +37,10 @@ public class Principal {
 		 Estudiante estAnonimo = new Estudiante(123);
 		 System.out.println(estAnonimo.toString()); 
 		 Estudiante estudiante = new
-		 Estudiante(111, "44556677G","Carlos", 'M', LocalDate.now(), 187, estAnonimo,null);
-		 Estudiante estudiante1 = new Estudiante(111, "44556677G","Javier", 'M', LocalDate.now(), 187, estAnonimo,null);
-		 Estudiante estudiante2 = new Estudiante(111, "44556677G","Pedro", 'M', LocalDate.now(), 187, estAnonimo,null);
-		 Estudiante estudiante3 = new Estudiante(111, "44556677G","Javier", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 Estudiante(111, "44556677G","BBB", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 Estudiante estudiante1 = new Estudiante(111, "44556677G","ZZZ", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 Estudiante estudiante2 = new Estudiante(111, "44556677G","DDD", 'M', LocalDate.now(), 187, estAnonimo,null);
+		 Estudiante estudiante3 = new Estudiante(111, "44556677G","CCC", 'M', LocalDate.now(), 187, estAnonimo,null);
 		 
 		 Estudiante [] listaEstudiantes = {estAnonimo,estudiante1,estudiante2,estudiante3};
 		 
@@ -92,6 +92,10 @@ public class Principal {
 
 		System.out.println("Ordena estudiantes:");
 		practicas.ordenaEstudiantes(listaEstudiantes);
+		for (int i = 0; i < listaEstudiantes.length; i++) {
+			System.out.println(listaEstudiantes[i].getNombre());	
+		}
+		
 		System.out.println("fin");
 	}
 
