@@ -86,6 +86,7 @@ public class Principal {
 		int[] datos = practicas.generaAleatorios3(500, 1, 500);
 		//practicas.ordenaEnteros(datos);
 		//Arrays.sort(datos);
+		/*
 		String[] cadenas =  {"perro","gato","alce"};
 		practicas.ordenaCadenas(cadenas);
 		
@@ -94,6 +95,14 @@ public class Principal {
 		practicas.ordenaEstudiantes(listaEstudiantes);
 		for (int i = 0; i < listaEstudiantes.length; i++) {
 			System.out.println(listaEstudiantes[i].getNombre());	
+		}
+		*/
+		int [] lista1 = {1,3,5,7,9,11};
+		int [] lista2 = {7,9,11};
+		
+		int [] resultado = practicas.mezclaListasOrdenadas(lista1, lista2);
+		for (int i = 0; i < resultado.length; i++) {
+			System.out.print(" - " + resultado[i] + " - ");
 		}
 		
 		System.out.println("fin");

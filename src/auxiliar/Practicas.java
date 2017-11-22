@@ -202,4 +202,36 @@ public class Practicas {
 			acu += v[i][mes];
 		return acu;
 	}
+
+	public int[] mezclaListasOrdenadas(int[] lista1, int[] lista2) {
+
+		int i = 0;
+		int j = 0;
+		int[] resultado = new int[lista1.length + lista2.length];
+		int k = 0;
+		while (k < resultado.length) {
+			if (i >= lista1.length) {
+				resultado[k] = lista2[j];
+				k++;
+				j++;
+			} else if (j >= lista2.length) {
+				resultado[k] = lista1[i];
+				k++;
+				i++;
+			} else {
+
+				if (lista1[i] < lista2[j]) {
+					resultado[k] = lista1[i];
+					k++;
+					i++;
+				} else if (lista1[i] >= lista2[j]) {
+					resultado[k] = lista2[j];
+					k++;
+					j++;
+				}
+			}
+		}
+
+		return resultado;
+	}
 }
