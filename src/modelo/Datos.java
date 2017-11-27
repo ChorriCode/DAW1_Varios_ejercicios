@@ -7,6 +7,14 @@ public class Datos {
 	// Declarar propiedad private,un array  de Estudiantes
 	// crea getter/setter
 	// en el constructor de esta clase, INICIALIZAR dicho array 
+	private String [] equipos = {"RMA","BCN","LPA","VAL","SEV"};
+	private String [][] resultados = {
+			{"","3-2","3-1","1-2","1-1"},
+			{"1-2","","3-1","1-2","1-1"},
+			{"2-2","3-2","","2-2","1-1"},
+			{"1-0","3-2","3-1","","2-1"},
+			{"0-1","1-2","3-1","0-2",""}
+	};
 	
 	public Datos() {
 		
@@ -37,6 +45,22 @@ public class Datos {
 
 	public  void setDiasSemana(String[] diasSemana) {
 		diasSemana = diasSemana;
+	}
+
+	public String[] getEquipos() {
+		return equipos;
+	}
+
+	public void setEquipos(String[] equipos) {
+		this.equipos = equipos;
+	}
+
+	public String[][] getResultados() {
+		return resultados;
+	}
+
+	public void setResultados(String[][] resultados) {
+		this.resultados = resultados;
 	}
 
 }

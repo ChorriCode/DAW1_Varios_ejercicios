@@ -98,12 +98,25 @@ public class Principal {
 		}
 		*/
 		int [] lista1 = {1,3,5,7,9,11};
-		int [] lista2 = {7,9,11};
+		int [] lista2 = {2,4,6,8,10};
 		
 		int [] resultado = practicas.mezclaListasOrdenadas(lista1, lista2);
+		int [] resultado2 = practicas.mezclaListasOrdenadasProfesor(lista1, lista2);
 		for (int i = 0; i < resultado.length; i++) {
 			System.out.print(" - " + resultado[i] + " - ");
 		}
+		System.out.println("");
+		for (int i = 0; i < resultado2.length; i++) {
+			System.out.print(" - " + resultado2[i] + " - ");
+		}
+		
+		//le doy un nif y me tiene que decir si es valido o no
+		
+		System.out.println("a".charAt(0));
+		
+		Datos miDato = new Datos();
+		int [] resultados = practicas.obtenerClasificacion(miDato.getResultados());
+		System.out.println(resultados);
 		
 		System.out.println("fin");
 	}
