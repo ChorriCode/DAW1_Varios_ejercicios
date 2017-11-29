@@ -15,7 +15,9 @@ public class Datos {
 			{"1-0","3-2","3-1","","2-1"},
 			{"0-1","1-2","3-1","0-2",""}
 	};
-	
+	//El orden de los equipos es RMA, BCN SEV, VAL, UDLP
+	private int [][] puntosJornada = {{3,1,1,0,1},{3,3,0,0,3},{1,1,1,0,1},{3,1,3,1,1},{1,1,1,0,3}};
+	private Equipo [] listadoEquipo = {new Equipo("RMA",0), new Equipo("BCN",0), new Equipo("SEV",0),new Equipo("VAL",0), new Equipo("UDLP",0)};
 	public Datos() {
 		
 	// INICIALIZA AQUI EL ARRAY estudiantes....
@@ -61,6 +63,22 @@ public class Datos {
 
 	public void setResultados(String[][] resultados) {
 		this.resultados = resultados;
+	}
+
+	public int[][] getPuntosJornada() {
+		return puntosJornada;
+	}
+
+	public void setPuntosJornada(int[][] puntosJornada) {
+		this.puntosJornada = puntosJornada;
+	}
+
+	public Equipo[] getListadoEquipo() {
+		return listadoEquipo;
+	}
+
+	public void setListadoEquipo(Equipo[] listadoEquipo) {
+		this.listadoEquipo = listadoEquipo;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import auxiliar.Practicas;
 import modelo.Datos;
+import modelo.Equipo;
 import modelo.Estudiante;
 import modelo.Persona;
 import modelo.Profesor;
@@ -117,7 +118,11 @@ public class Principal {
 		Datos miDato = new Datos();
 		int [] resultados = practicas.obtenerClasificacion(miDato.getResultados());
 		System.out.println(resultados);
+		int [] resultados2 = practicas.obtenerClasificacion2(miDato.getResultados());
+		System.out.println(resultados2);
 		
+		Equipo [] clasificacion = practicas.obtenerClasificacion3(miDato.getPuntosJornada());
+		System.out.println(clasificacion);
 		System.out.println("fin");
 	}
 

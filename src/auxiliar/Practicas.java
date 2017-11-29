@@ -3,6 +3,7 @@ package auxiliar;
 import java.util.Random;
 
 import modelo.Datos;
+import modelo.Equipo;
 import modelo.Estudiante;
 
 public class Practicas {
@@ -255,35 +256,89 @@ public class Practicas {
 		return resultado;
 	}
 
-	public int [] obtenerClasificacion(String [][] goles) {
-		int [] puntosEquipos = new int[goles.length];
-		String [] resultadosParciales;
+	public int[] obtenerClasificacion(String[][] goles) {
+		int[] puntosEquipos = new int[goles.length];
+		String[] resultadosParciales;
 		for (int i = 0; i < goles.length; i++) {
 			for (int j = 0; j < goles[i].length; j++) {
-				if (goles[i][j].indexOf("-") != -1) {
+				if (goles[i][j].indexOf("-") != -1) {//comprobamos si el resultado no tiene goles
 					resultadosParciales = goles[i][j].split("-");
 					if (Integer.parseInt(resultadosParciales[0]) > Integer.parseInt(resultadosParciales[1])) {
-						//Gana equipo local
-						puntosEquipos[i] +=3;
-						
-					} else if (Integer.parseInt(resultadosParciales[0]) < Integer.parseInt(resultadosParciales[1])){
-						//Gana equipo visitante
-						puntosEquipos[j] +=3;
-						
+						// Gana equipo local
+						puntosEquipos[i] += 3;
+
+					} else if (Integer.parseInt(resultadosParciales[0]) < Integer.parseInt(resultadosParciales[1])) {
+						// Gana equipo visitante
+						puntosEquipos[j] += 3;
+
 					} else {
-						//empatan
+						// empatan
 						puntosEquipos[i]++;
 						puntosEquipos[j]++;
-						
-					} 
+
+					}
 				}
-					
+
 			}
-				
+
 		}
+
+		return puntosEquipos;
+	}
+
+	public int[] obtenerClasificacion2(String[][] goles) {
+		int[] puntosEquipos = new int[goles.length];
+		String[] resultadosParciales;
+		for (int j = 0; j < goles[0].length; j++) {
+			for (int i = 0; i < goles.length; i++) {
+				if (goles[i][j].indexOf("-") != -1) {//comprobamos si el resultado no tiene goles
+					resultadosParciales = goles[i][j].split("-");
+					if (Integer.parseInt(resultadosParciales[0]) > Integer.parseInt(resultadosParciales[1])) {
+						// Gana equipo local
+						puntosEquipos[i] += 3;
+
+					} else if (Integer.parseInt(resultadosParciales[0]) < Integer.parseInt(resultadosParciales[1])) {
+						// Gana equipo visitante
+						puntosEquipos[j] += 3;
+
+					} else {
+						// empatan
+						puntosEquipos[i]++;
+						puntosEquipos[j]++;
+
+					}
+				}
+
+			}
+
+		}
+
+		return puntosEquipos;
+	}
+	
+	public Equipo[] obtenerClasificacion3(int [][] puntos) {
+		int obtenerPuntos;
+		int nuevosPuntos;
+		Equipo [] clasificacion = new Datos().getListadoEquipo();
+		for (int j = 0; j < puntos[0].length; j++) {
+			for (int i = 0; i < puntos[j].length; i++) {
+				obtenerPuntos = clasificacion[j].getPuntos();
+				nuevosPuntos = obtenerPuntos + puntos[i][j];
+				clasificacion[j].setPuntos(nuevosPuntos);
+			}
+		}
+		//ordenamos de mas puntos menos puntos los equipos del array de salida
+		Equipo aux;
+		for (int i = 0; i < clasificacion.length - 1; i++)
+			for (int j = i + 1; j < clasificacion.length; j++)
+				if (clasificacion[i].getPuntos() < clasificacion[j].getPuntos()) {
+					aux = clasificacion[i];
+					clasificacion[i] = clasificacion[j];
+					clasificacion[j] = aux;
+				}
 		
-
-	return puntosEquipos;
-}
-
+		
+		return clasificacion;
+	}
+	
 }
