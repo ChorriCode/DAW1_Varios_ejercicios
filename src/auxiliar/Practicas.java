@@ -261,7 +261,7 @@ public class Practicas {
 		String[] resultadosParciales;
 		for (int i = 0; i < goles.length; i++) {
 			for (int j = 0; j < goles[i].length; j++) {
-				if (goles[i][j].indexOf("-") != -1) {//comprobamos si el resultado no tiene goles
+				if (goles[i][j].indexOf("-") != -1) {// comprobamos si el resultado no tiene goles
 					resultadosParciales = goles[i][j].split("-");
 					if (Integer.parseInt(resultadosParciales[0]) > Integer.parseInt(resultadosParciales[1])) {
 						// Gana equipo local
@@ -291,7 +291,7 @@ public class Practicas {
 		String[] resultadosParciales;
 		for (int j = 0; j < goles[0].length; j++) {
 			for (int i = 0; i < goles.length; i++) {
-				if (goles[i][j].indexOf("-") != -1) {//comprobamos si el resultado no tiene goles
+				if (goles[i][j].indexOf("-") != -1) {// comprobamos si el resultado no tiene goles
 					resultadosParciales = goles[i][j].split("-");
 					if (Integer.parseInt(resultadosParciales[0]) > Integer.parseInt(resultadosParciales[1])) {
 						// Gana equipo local
@@ -315,11 +315,11 @@ public class Practicas {
 
 		return puntosEquipos;
 	}
-	
-	public Equipo[] obtenerClasificacion3(int [][] puntos) {
+
+	public Equipo[] obtenerClasificacion3(int[][] puntos) {
 		int obtenerPuntos;
 		int nuevosPuntos;
-		Equipo [] clasificacion = new Datos().getListadoEquipo();
+		Equipo[] clasificacion = new Datos().getListadoEquipo();
 		for (int j = 0; j < puntos[0].length; j++) {
 			for (int i = 0; i < puntos[j].length; i++) {
 				obtenerPuntos = clasificacion[j].getPuntos();
@@ -327,7 +327,7 @@ public class Practicas {
 				clasificacion[j].setPuntos(nuevosPuntos);
 			}
 		}
-		//ordenamos de mas puntos menos puntos los equipos del array de salida
+		// ordenamos de mas puntos menos puntos los equipos del array de salida
 		Equipo aux;
 		for (int i = 0; i < clasificacion.length - 1; i++)
 			for (int j = i + 1; j < clasificacion.length; j++)
@@ -336,9 +336,90 @@ public class Practicas {
 					clasificacion[i] = clasificacion[j];
 					clasificacion[j] = aux;
 				}
-		
-		
+
 		return clasificacion;
 	}
-	
+
+	public boolean esPrimo(int numero) {
+		for (int i = 2; i < numero; i++) {
+			if (numero % i == 0)
+				return false;
+		}
+		return true;
+	}
+
+	public int[] listaNumPrimos(int cuantos) {
+		int[] primos = new int[cuantos];
+		int contador = 1;
+		int indice = 0;
+		while (indice < cuantos) {
+			if (esPrimo(contador)) {
+				primos[indice++] = contador;
+				contador++;
+			} else {
+				contador++;
+			}
+		}
+		return primos;
+	}
+
+	public int[] numerosFibonacci(int cuantos) {
+		int[] fibonacci = new int[cuantos];
+
+		// int contador = 0;
+		fibonacci[0] = 0;
+		if (cuantos > 1) {
+			fibonacci[1] = 1;
+		}
+		int indice = 0;
+		while (indice < cuantos - 2) {
+			fibonacci[indice + 2] = fibonacci[indice] + fibonacci[indice + 1];
+			indice++;
+		}
+		return fibonacci;
+	}
+
+	public void recorrerMatrizIrregularPorColumnas(int[][] matriz) {
+
+		int valorMax = 0;
+		// obtenemos el númer máximo de columnas
+		for (int i = 0; i < matriz.length; i++) {
+			if (valorMax < matriz[i].length) {
+				valorMax = matriz[i].length;
+			}
+		}
+		for (int j = 0; j < valorMax; j++) {
+			for (int i = 0; i < matriz.length; i++) {
+				try {
+					System.out.print(matriz[i][j] + ",");
+				} catch (Exception e) {
+					break;
+				}
+			}
+		}
+	}
+
+	public void recorrerMatrizIrregularPorColumnas2(Integer[][] matriz) {
+
+		int valorMax = 0;
+		// obtenemos el númer máximo de columnas
+		for (int i = 0; i < matriz.length; i++) {
+			if (valorMax < matriz[i].length) {
+				valorMax = matriz[i].length;
+			}
+		}
+		for (int j = 0; j < valorMax; j++) {
+			for (int i = 0; i < matriz.length; i++) {
+				try {
+					if (matriz[i][j] != null) {
+						System.out.print(matriz[i][j] + ",");
+					}
+
+				} catch (Exception e) {
+					
+				}
+			}
+		}
+	}
+
 }

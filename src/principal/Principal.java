@@ -123,6 +123,19 @@ public class Principal {
 		
 		Equipo [] clasificacion = practicas.obtenerClasificacion3(miDato.getPuntosJornada());
 		System.out.println(clasificacion);
+		
+		System.out.println(String.valueOf(123));
+		System.out.println(practicas.esPrimo(9));
+		//int [] listaPrimos = practicas.listaNumPrimos(10);
+		int [] listaFibonacci = practicas.numerosFibonacci(1);
+		System.out.println(listaFibonacci);
+		
+		int [][] matriz = {{1,4,7,9},{2,5,8},{3,6}}; 
+		practicas.recorrerMatrizIrregularPorColumnas(matriz);
+		
+		System.out.println();
+		Integer [][] matriz2 = {{1,4,null,7,9},{2,null,5,8},{3,null,6}}; 
+		practicas.recorrerMatrizIrregularPorColumnas2(matriz2);
 		System.out.println("fin");
 	}
 
