@@ -136,6 +136,8 @@ public class Principal {
 		System.out.println();
 		Integer [][] matriz2 = {{1,4,null,7,9},{2,null,5,8},{3,null,6}}; 
 		practicas.recorrerMatrizIrregularPorColumnas2(matriz2);
+
+		
 		System.out.println("fin");
 	}
 

@@ -10,6 +10,94 @@ public class Practicas {
 	// private static String[] diasSemana = { "lunes", "martes", "miercoles",
 	// "jueves", "viernes", "sábado", "domingo" };
 
+	
+	//*************************************calculo de los multiplos de un numero***********************
+	
+		public String calcularMultiplo(int multiplo){
+			String resultado = "";
+			for (int i = 1; i <= multiplo; i++) {
+				if(multiplo%i == 0) {
+					
+					resultado =  resultado + i + ",";
+				}
+			}
+			
+			return resultado;
+		}
+		
+		//***********************************suma diagonal Matriz cuadrada********************************
+		
+		public int sumaDiagonalMatrizCuadrada(int [][] matrizCuadrada) {
+			int resultado = 0;
+			
+			for (int i = 0; i < matrizCuadrada.length; i++) {
+				
+						resultado = resultado +  matrizCuadrada[i][i];
+						
+			}
+			
+			
+			
+			return resultado;
+		}
+		
+		
+		//***********************************suma diagonal inversa Matriz cuadrada********************************
+		
+		public int sumaDiagonalInversaMatrizCuadrada(int [][] matrizCuadrada) {
+			int resultado = 0;
+			
+			for (int i = 0; i < matrizCuadrada.length; i++) {
+				
+						resultado = resultado +  matrizCuadrada[i][matrizCuadrada.length - i -1];
+						
+				
+			}
+			
+			
+			return resultado;
+		}
+		
+		
+		public void  imprimeListadoNumeros(int [] numeros){
+			
+			 for (int i = 0; i < numeros.length; i++) {
+					System.out.println(numeros[i]);
+			}
+		}
+		
+		
+		//********************************generar array de numeros aleatorios****************************
+		
+		public int[] generarArrayEnteros(int size,int inferior, int superior) {
+			
+			int[] resultado = new int[size];
+			
+			for (int i = 0; i < resultado.length; i++) {
+				
+				resultado[i] = inferior + (int) (Math.random() * (superior - inferior + 1));
+				
+			}
+			return resultado;
+			
+		}
+		
+		//********************************generar matriz de numeros aleatorios*****************************
+		
+		public int[][] generarMatrizEnteros(int size,int inferior, int superior) {
+			
+			int[][] resultado = new int[size][size];
+			
+			for (int i = 0; i < resultado.length; i++) {
+				for (int j = 0; j < resultado.length; j++) {
+					resultado[i][j] = inferior + (int) (Math.random() * (superior - inferior + 1));
+				}
+				
+				
+			}
+			return resultado;
+		}
+	
 	// ORDENACION
 	public void ordenaEnteros(int[] numeros) {
 		for (int i = 0; i < numeros.length - 1; i++)
@@ -382,7 +470,7 @@ public class Practicas {
 	public void recorrerMatrizIrregularPorColumnas(int[][] matriz) {
 
 		int valorMax = 0;
-		// obtenemos el númer máximo de columnas
+		// obtenemos el número máximo de columnas
 		for (int i = 0; i < matriz.length; i++) {
 			if (valorMax < matriz[i].length) {
 				valorMax = matriz[i].length;
@@ -422,4 +510,14 @@ public class Practicas {
 		}
 	}
 
+	public void  imprimeMatrizCuadradaNumeros(int [][] numeros){
+		
+		 for (int i = 0; i < numeros.length; i++) {
+			 for (int j = 0; j < numeros.length; j++) {
+				 System.out.print(numeros[i][j]);
+			}
+				System.out.println();
+		}
+	}
+	
 }
