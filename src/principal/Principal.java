@@ -1,7 +1,9 @@
 package principal;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import auxiliar.Practicas;
 import modelo.Datos;
@@ -61,6 +63,7 @@ public class Principal {
 		// practicas.listaDiasSemana();
 		// Estudiante[] lista = new Datos().getEstudiantes();
 		// practicas.listaEstudiantes(new Datos().getEstudiantes());
+
 		int[][] visitantesYear = { { 2, 4, 5, 1, 3, 2, 1, 1, 1, 3, 5, 1 },
 				{ 23, 1, 56, 12, 32, 23, 17, 12, 11, 34, 45, 13 }, { 23, 3, 56, 12, 32, 23, 17, 12, 11, 34, 45, 12 },
 				{ 23, 1, 56, 12, 32, 23, 17, 12, 11, 34, 45, 13 }, { 23, 4, 56, 12, 32, 23, 17, 12, 11, 34, 45, 10 },
@@ -76,8 +79,8 @@ public class Principal {
 		 * System.out.println("Visitantes  en Canarias en el mes " + meses[mes]+ " : " +
 		 * practicas.visitantesMesYear(mes, visitantesYear));
 		 */
-
-	/*	String[] misDatos = { "123","abc", "345", "1x2", "990" };
+/*
+		String[] misDatos = { "123","abc", "345", "1x2", "990" };
 		//int[] res = practicas.convierteCadenasANumeros(misDatos);
 		float saldo= 1000.0f;
 		float[] movimientos= {10.0f, -5.0f,20.5f};
@@ -98,6 +101,7 @@ public class Principal {
 			System.out.println(listaEstudiantes[i].getNombre());	
 		}
 		*/
+		/*
 		int [] lista1 = {1,3,5,7,9,11};
 		int [] lista2 = {2,4,6,8,10};
 		
@@ -136,8 +140,34 @@ public class Principal {
 		System.out.println();
 		Integer [][] matriz2 = {{1,4,null,7,9},{2,null,5,8},{3,null,6}}; 
 		practicas.recorrerMatrizIrregularPorColumnas2(matriz2);
-
+*/
+		ArrayList<Estudiante> listaE = practicas.introLista();
+		practicas.listaEstudiantes(listaE);
 		
+		
+		ArrayList<String> cadenas = new ArrayList<String>();
+		cadenas.add("123");
+		cadenas.add("456");
+		cadenas.add("-789");
+		cadenas.add("1x2");
+		ArrayList<Integer> resultado = practicas.convierteCadenasANumeros(cadenas);
+		System.out.println("------------------");
+		for (Integer integer : resultado) {
+			System.out.println(integer);
+		}
+		
+		ArrayList<Integer> listaNumeros = new ArrayList<Integer>();
+		listaNumeros.add(2);
+		listaNumeros.add(4);
+		listaNumeros.add(1);
+		listaNumeros.add(7);
+		//practicas.ordenaEnteros(listaNumeros);
+		int[] arrayNumeros= {2,4,1,7};
+		ArrayList<ArrayList<Integer>> resultado2 = practicas.convertMatrizArrayToArraList(visitantesYear);
+		
+		practicas.ordenaEnteros(listaNumeros);
+		practicas.ordenaEnteros(arrayNumeros);
+		System.out.println("Suma Diagonal: " + practicas.sumaDiagonalMatrizCuadrada(visitantesYear));
 		System.out.println("fin");
 	}
 

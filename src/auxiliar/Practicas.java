@@ -1,5 +1,8 @@
 package auxiliar;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Random;
 
 import modelo.Datos;
@@ -10,6 +13,21 @@ public class Practicas {
 	// private static String[] diasSemana = { "lunes", "martes", "miercoles",
 	// "jueves", "viernes", "sábado", "domingo" };
 
+	// SEGUNDA EVAALUACION
+	
+	public ArrayList<Estudiante> introLista() {
+		ArrayList<Estudiante> listaE;
+		listaE = new ArrayList<Estudiante>();
+		Estudiante est1 = new Estudiante(123);
+		listaE.add(est1);
+		listaE.add(est1);
+		listaE.add(est1);
+		int tam = listaE.size();
+		listaE.add(0,est1);
+		
+		System.out.println();
+		return listaE;
+	}
 	
 	//*************************************calculo de los multiplos de un numero***********************
 	
@@ -28,19 +46,20 @@ public class Practicas {
 		//***********************************suma diagonal Matriz cuadrada********************************
 		
 		public int sumaDiagonalMatrizCuadrada(int [][] matrizCuadrada) {
-			int resultado = 0;
-			
-			for (int i = 0; i < matrizCuadrada.length; i++) {
-				
-						resultado = resultado +  matrizCuadrada[i][i];
-						
+			int resultado = 0;		
+			for (int i = 0; i < matrizCuadrada.length; i++) {			
+						resultado = resultado +  matrizCuadrada[i][i];						
 			}
-			
-			
-			
-			return resultado;
+		return resultado;
 		}
 		
+		public int sumaDiagonalMatrizCuadrada(ArrayList<ArrayList<Integer>> matrizCuadrada) {
+			int resultado = 0;		
+			for (int i = 0; i < matrizCuadrada.size(); i++) {			
+						resultado = resultado +  matrizCuadrada.get(i).get(i);						
+			}
+		return resultado;
+		}
 		
 		//***********************************suma diagonal inversa Matriz cuadrada********************************
 		
@@ -101,6 +120,7 @@ public class Practicas {
 	// ORDENACION
 	public void ordenaEnteros(int[] numeros) {
 		for (int i = 0; i < numeros.length - 1; i++)
+			
 			for (int j = i + 1; j < numeros.length; j++)
 				if (numeros[i] > numeros[j]) {
 					int aux = numeros[i];
@@ -108,6 +128,21 @@ public class Practicas {
 					numeros[j] = aux;
 				}
 	}
+	
+	public void ordenaEnteros(ArrayList<Integer> numeros) {
+		for (int i = 0; i < numeros.size() - 1; i++) {
+			System.out.println("index:" + i +",");
+		
+			for (int j = i + 1; j < numeros.size(); j++)
+				if (numeros.get(i) > numeros.get(j)) {
+					int aux = numeros.get(i);
+					numeros.set(i, numeros.get(j));
+					numeros.set(j, aux);
+					System.out.println("valor: " + numeros.get(i));
+				}
+		}
+	}
+	
 
 	public void ordenaCadenas(String[] cadenas) {
 		for (int i = 0; i < cadenas.length - 1; i++)
@@ -147,6 +182,22 @@ public class Practicas {
 			} catch (NumberFormatException e) {
 
 				resultado[i] = -1;
+			}
+		}
+		return resultado;
+	}
+	
+	public ArrayList<Integer> convierteCadenasANumeros(ArrayList<String> cadenas) {
+		ArrayList<Integer> resultado = new ArrayList<Integer>();
+		//for (int i = 0; i < cadenas.size(); i++) {
+		for (String string : cadenas) {
+			
+			try {
+
+				resultado.add(Integer.parseInt(string));
+			} catch (NumberFormatException e) {
+
+				resultado.add(-1);
 			}
 		}
 		return resultado;
@@ -277,14 +328,55 @@ public class Practicas {
 			}
 		}
 	}
+	
+	public void listaEstudiantes(ArrayList<Estudiante> lista) {
+		for (Estudiante estudiante : lista) {
+			// if (estudiante != null)
+			try {
+				System.out.println(estudiante.getCodGrupo());
+			} catch (NullPointerException e) {
 
+			}
+		}
+	}
+
+	public ArrayList<ArrayList<Integer>> convertMatrizArrayToArraList(int[][] matriz){
+		ArrayList<ArrayList<Integer>> resultado = new ArrayList<ArrayList<Integer>>();
+		for (int[] filaMatriz : matriz) {
+			ArrayList<Integer> filaLista = new ArrayList<Integer>();
+			for (int numero : filaMatriz) {	
+				filaLista.add(numero);
+			}
+			resultado.add(filaLista);
+		}			
+		return resultado;	
+	}
+	/*
+	ArrayList<ArrayList<Integer>> convertMatrizArrayToArraList2(int[][] matriz){
+		ArrayList<ArrayList<Integer>> resultado = new ArrayList<ArrayList<Integer>>();
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				resultado.add(i, new ArrayList<Integer>());
+				
+			}
+		}
+		return resultado;
+	}
+	*/
 	public int visitantesIslaYear(int isla, int[][] v) {
 		int acu = 0;
 		for (int j = 0; j < v[0].length; j++)
 			acu += v[isla][j];
 		return acu;
 	}
-
+/*	
+	public int visitantesIslaYear(int isla, ArrayList<ArrayList<Integer>> v) {
+		int acu = 0;
+		for (int j = 0; j < v[0].length; j++)
+			acu += v[isla][j];
+		return acu;
+	}
+*/
 	public int visitantesMesYear(int mes, int[][] v) {
 		int acu = 0;
 		for (int i = 0; i < v.length; i++)
@@ -518,6 +610,17 @@ public class Practicas {
 			}
 				System.out.println();
 		}
+	}
+	
+	public HashMap<String,Estudiante> introMapa(){
+		//La clave representa el nif del Estudiante
+		HashMap<String, Estudiante> resultado = new HashMap<String,Estudiante>();
+		Estudiante estudiante = new Estudiante(123, "45478847K", "Paco", 'M', null, 180, null, null);
+		resultado.put(estudiante.getNif(), estudiante);
+		Estudiante est1 = resultado.get("45478847K");
+		resultado.put("123456G",new Estudiante(124, "123456G", "Paco", 'M', null, 180, null, null));	
+		return resultado;
+		
 	}
 	
 }
