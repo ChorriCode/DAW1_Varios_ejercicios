@@ -143,7 +143,11 @@ public class Practicas {
 		}
 	}
 	
-
+	public void ordenaEnteros2(ArrayList<Integer> numeros) {
+		Collections.sort(numeros);
+	}
+	
+	
 	public void ordenaCadenas(String[] cadenas) {
 		for (int i = 0; i < cadenas.length - 1; i++)
 			for (int j = i + 1; j < cadenas.length; j++)
